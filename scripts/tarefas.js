@@ -1,7 +1,7 @@
 //Verificando se existe um usuario no localStorage
 
 if (!localStorage.user) {
-  location.replace("login.html");
+  location.replace("index.html");
 }
 
 //criando a logica para carregar a pagina
@@ -18,7 +18,7 @@ window.addEventListener("load", function () {
     if (confirmacao) {
       //Linpando o local storage e redirecionando para a pagina login
       localStorage.clear();
-      location.replace("/login.html");
+      location.replace("/index.html");
     }
   });
 

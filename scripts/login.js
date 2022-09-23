@@ -31,6 +31,7 @@ window.addEventListener("load", function () {
       .then((response) => response.json())
       .then((data) => {
         if (data.jwt) {
+          
           //cria um objeto literal com algumas informações que eu quero armazenar em LocalStorage
           const usuario = {
             jwt: data.jwt,
@@ -40,7 +41,7 @@ window.addEventListener("load", function () {
           localStorage.setItem("user", JSON.stringify(usuario));
 
           //redireciona para a página
-          location.replace("/");
+          location.replace("/tarefas.html");
         }
         //limpa os campos do formulário
         form.reset();
