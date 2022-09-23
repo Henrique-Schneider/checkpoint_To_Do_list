@@ -3,20 +3,9 @@ window.addEventListener("load", function () {
   const form = document.forms[0];
   const email = document.querySelector("#inputEmail");
   const password = document.querySelector("#inputPassword");
-  const botaoAcessarLogin = document.querySelector("#botaoAcessarLogin");
-
-
-/* Altera as caracteristicas do botão acessar */
-  botaoAcessarLogin.style.backgroundColor = "#979292A1"
-  botaoAcessarLogin.innerText = "Bloqueado";
-
-
-
-
-
-   const url = "https://ctd-todo-api.herokuapp.com/v1/users/login";
+  const url = "https://ctd-fe2-todo-v2.herokuapp.com/v1/users/login";
   
-  
+
   //ouvimos o envio do formulário
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -48,7 +37,7 @@ window.addEventListener("load", function () {
             
           };
           //Salvo no LocalStorage o objeto com o token e o nome do usuário
-          localStorage.setItem("token", JSON.stringify(usuario));
+          localStorage.setItem("user", JSON.stringify(usuario));
 
           //redireciona para a página
           location.replace("/");
@@ -59,8 +48,6 @@ window.addEventListener("load", function () {
     });
     
   });
-
-  
   
   
 }); 

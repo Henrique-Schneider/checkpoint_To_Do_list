@@ -22,7 +22,7 @@ window.addEventListener("load", function () {
     }
   });
 
-  const urlTarefas = "https://ctd-todo-api.herokuapp.com/v1/tasks";
+  const urlTarefas = "https://ctd-fe2-todo-v2.herokuapp.com/v1/tasks";
   const usuario = JSON.parse(localStorage.user);
   const token = usuario.jwt;
 
@@ -41,7 +41,7 @@ window.addEventListener("load", function () {
     const carregarTarefa = {
       description: novaTarefa.value.trim(),
     };
-    const settings = {
+    const tarefaConfig = {
       method: "POST",
       body: JSON.stringify(carregarTarefa),
       headers: {
@@ -50,7 +50,7 @@ window.addEventListener("load", function () {
       },
     };
     console.log("Criando uma tarefa no banco de dados");
-    fetch(urlTarefas, settings)
+    fetch(urlTarefas, tarefaConfig)
       .then((response) => response.json())
       .then((tarea) => {
         console.log(tarea);
@@ -198,7 +198,7 @@ window.addEventListener("load", function () {
       });
     });
   }
-  const urlLogado = "https://ctd-todo-api.herokuapp.com/v1/users/getMe";
+  const urlLogado = "https://ctd-fe2-todo-v2.herokuapp.com/v1/users/getMe";
   //obter lista de usuarios GET
   
   const configuracao = {
