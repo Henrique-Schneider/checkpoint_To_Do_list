@@ -1,45 +1,61 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles/acesso.css">
-  <title>ToDo</title>
+  <title>To-Do App</title>
+
+  <!-- ---------------- estilos compartilhados entre login e signup ---------------- -->
+  <link rel="stylesheet" href="styles/acesso.css">
+
+                                  <!-- icons -->
+  <script src="https://kit.fontawesome.com/f3dcfe94d2.js" crossorigin="anonymous"></script>
   
 </head>
 
 <body>
+ 
+  <!-- conteúdo de barra de carregamento --> 
+  
   <div class="left">
-    <img src="./assets/pessoa-login.png" alt="pessoas login">
+    <img src="./assets/pessoa-login.png" alt="">
   </div>
-
+  
   <div class="right">
-  <form>
-    <div class="form-header">
-      <p>To-Do App</p>
+   
+    <form>
+      
+      <div class="form-header">
+        <p>To-Do App</p>
+      </div>
+      <h1>Acessar</h1>
+      <div id="msgErr"></div>
+      <label id="labelEmail">
+        Email:
+        <input id="inputEmail" type="email">
+      </label>
+      <div class="container-senha login">
+      <label id="labelSenha">
+        Senha:
+        <input id="inputPassword" type="password">
+        <small id="campoObrigatorio">Campo obrigatório</small>
+        <i id="verSenha" class="fa-solid fa-eye"></i>
+        <i id="esconderSenha"class="fa-solid fa-eye-slash"></i>
+      </label>
     </div>
-    <h1>Acessar</h1>
-
-    
-    <label>
-      Email:
-      <input id="inputEmail" type="text">
-    </label>
-    <label>
-      Senha:
-      <input id="inputPassword" type="password">
-    </label>
-
-    <button type="submit">Acessar</button>
-    
-  </form>
-  <div class="ingressar">
-    <a href="signup.html">Não tem conta? Cadastre se aquí</a>
+      <button id="acessar" type="submit">Acessar</button>
+      
+    </form>
+    <div class="ingressar">
+      <a href="signup.html">Não possui conta? Crie agora mesmo</a>
+    </div>
   </div>
-</div>
-<script src="./scripts/login.js"></script>
+  <script src="/scripts/login.js"></script>
+  <script src="./scripts/loaders.js"></script>
+  
 </body>
 
 </html>
+
