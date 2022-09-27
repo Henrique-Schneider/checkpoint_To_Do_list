@@ -1,3 +1,6 @@
+if (!localStorage.user) {
+  location.replace("login.html");
+}
 
 //criando a logica para carregar a pagina
 window.addEventListener("load", function () {
