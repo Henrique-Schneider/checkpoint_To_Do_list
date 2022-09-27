@@ -16,6 +16,8 @@ let iEmail = document.getElementById('email')
 let labelEmail = document.getElementById('labelEmail')
 let validEmail = false
 
+
+
 let iSenha = document.getElementById('senha')
 let labelSenha = document.getElementById('labelSenha')
 let validSenha = false
@@ -32,57 +34,51 @@ let verSenhaConfirmarSenha = document.querySelector("#verSenhaConfirmarSenha")
 // evento de monstrar senha
 
 esconderSenha.addEventListener("click",()=> {
-    let inputSenha = document.querySelector("#senha")
-    if(inputSenha.getAttribute("type") == "password" ){
-        inputSenha.setAttribute("type","text")
+   
+    if(iSenha.getAttribute("type") == "password" ){
+        iSenha.setAttribute("type","text")
         esconderSenha.setAttribute("style","display: none")
         verSenha.setAttribute("style","display: block")  
     }else{
-        inputSenha.setAttribute("type","password")
+        iSenha.setAttribute("type","password")
     }
 })
 
 // evento de mostrar senha
 verSenha.addEventListener("click",()=> {
-    let inputSenha = document.querySelector("#senha")
-    if(inputSenha.getAttribute("type") == "text" ){
-        inputSenha.setAttribute("type","password")
+    
+    if(iSenha.getAttribute("type") == "text" ){
+        iSenha.setAttribute("type","password")
         verSenha.setAttribute("style","display: none")
         esconderSenha.setAttribute("style","display:block")
          
     }else{
-        inputSenha.setAttribute("type","text")
+        iSenha.setAttribute("type","text")
     }
 })
 
-
-
-
-// evento de mostrar senha
 esconderConfirSenha.addEventListener("click",()=> {
-    let inputSenha = document.querySelector("#rSenha")
-    if(inputSenha.getAttribute("type") == "password" ){
-        inputSenha.setAttribute("type","text")
-        esconderConfirSenha.setAttribute("style","display: none")
-        verSenhaConfirmarSenha.setAttribute("style","display: block")  
-        
-       }else{
-         inputSenha.setAttribute("type","password")
-       }
+  if(rSenha.getAttribute("type") == "password" ){
+      rSenha.setAttribute("type","text")
+      esconderConfirSenha.setAttribute("style","display: none")
+      verSenhaConfirmarSenha.setAttribute("style","display: block")  
+      
+     }else{
+       rSenha.setAttribute("type","password")
+     }
 })
 
 verSenhaConfirmarSenha.addEventListener("click",()=> {
- let inputSenha = document.querySelector("#rSenha")
- if(inputSenha.getAttribute("type") == "text" ){
-     inputSenha.setAttribute("type","password")
-     verSenhaConfirmarSenha.setAttribute("style","display: none")
-     esconderConfirSenha.setAttribute("style","display:block")
-      
- }else{
-     inputSenha.setAttribute("type","text")
- }
-})
 
+if(rSenha.getAttribute("type") == "text" ){
+   rSenha.setAttribute("type","password")
+   verSenhaConfirmarSenha.setAttribute("style","display: none")
+   esconderConfirSenha.setAttribute("style","display:block")
+    
+}else{
+   rSenha.setAttribute("type","text")
+}
+})
 
 function validaEmail(email) {
   let emailPattern =
@@ -91,9 +87,9 @@ function validaEmail(email) {
 }
 
 iNome.addEventListener('keyup' , ()=>{
-  if (iNome.value.length <= 2) {
+  if (iNome.value.length <= 5) {
    labelNome.setAttribute("style", "color:  red")
-   labelNome.innerHTML = "Nome Insira no minino 3 caracteres"
+   labelNome.innerHTML = "Nome Insira no minino 5 caracteres"
    iNome.setAttribute('style', 'border-color: red')
    validNome = false
     
@@ -106,9 +102,9 @@ iNome.addEventListener('keyup' , ()=>{
 })
 
 iSobrenome.addEventListener('keyup' , ()=>{
-  if (iSobrenome.value.length <= 2) {
+  if (iSobrenome.value.length <= 6) {
    labelSobrenome.setAttribute("style", "color:  red")
-   labelSobrenome.innerHTML = "Sobrenome Insira no minino 3 caracteres"
+   labelSobrenome.innerHTML = "Sobrenome Insira no minino 6 caracteres"
    iSobrenome.setAttribute('style', 'border-color: red')
    validSobrenome = false
     
@@ -171,32 +167,14 @@ iEmail.addEventListener('keyup' , ()=>{
 
 form.addEventListener("submit" , function (evento){
   evento.preventDefault()
-  
-  
-  
-  
-  // Aqui podemos mostrar o spinner para indicar à pessoa que se
-   // iniciou o processo de registro
-
   if(validNome && validSobrenome && validSenha && validRsenha && validEmail){
-    
-    
-    
-    
-     
-  
-    
-    
-    
       msgSuccess.setAttribute('style', 'display: block')
-      msgSuccess.innerHTML = `<strong>Cadastrando usuário...</strong>`
+      msgSuccess.innerHTML = '<strong>Cadastrando usuário...</strong>'
       msgError.setAttribute('style', 'display: none')
       msgError.innerHTML = ''
-   
+      animarBarra()
   } 
-  
   else {
-    
     msgError.setAttribute('style', 'display: block')
     msgError.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar</strong>'
     msgSuccess.innerHTML = ''
@@ -219,40 +197,36 @@ form.addEventListener("submit" , function (evento){
     }
     
     
-     fetch(url,cadastroApi)
+    fetch(url,cadastroApi)
     .then(resposta => {
-      animarBarra()
       if(resposta.status === 400){
-        
-        msgError.setAttribute('style', 'display: block')
-        msgError.innerHTML = '<strong>email já cadastrado</strong>'
-        msgSuccess.innerHTML = ''
-        msgSuccess.setAttribute('style', 'display: none')
-        
+        setTimeout(() => {
+          msgError.setAttribute('style', 'display: block')
+          msgError.innerHTML = '<strong>email já cadastrado</strong>'
+          msgSuccess.innerHTML = ''
+          msgSuccess.setAttribute('style', 'display: none')
+        }, 3000);
       }else if(resposta.status === 201){
-        
         setTimeout(() => {
           window.location.href = "index.html"
+        }, 5000);
+        setTimeout(() => {
+          msgSuccess.setAttribute('style', 'display: block')
+          msgSuccess.innerHTML = '<strong>Sucesso.</strong>'
+          msgError.setAttribute('style', 'display: none')
+          msgError.innerHTML = ''
         }, 3000);
-        
-        msgSuccess.setAttribute('style', 'display: block')
-        msgSuccess.innerHTML = '<strong>Sucesso.</strong>'
-        msgError.setAttribute('style', 'display: none')
-        msgError.innerHTML = ''
-        
-        
       } 
       else{
-        
         msgError.setAttribute('style', 'display: block')
         msgError.innerHTML = '<strong>Erro API</strong>'
         msgSuccess.innerHTML = ''
         msgSuccess.setAttribute('style', 'display: none')
-        
+            
         }
       
       
     })
-  
+
 })
 

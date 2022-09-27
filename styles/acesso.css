@@ -12,7 +12,6 @@ h1 {
 
 form {
   position: relative;
-  
   max-width: 21em;
   background-color: white;
   display: flex;
@@ -22,8 +21,6 @@ form {
   box-shadow: 0 5px 5px lightgrey;
   padding: 1em 2.5em;
   box-sizing: border-box;
-  
-  
 }
 
 form:after {
@@ -91,7 +88,6 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
 }
 #msgErr{
  text-align: center;
@@ -104,7 +100,6 @@ button {
 }
 
 #msgSuccess{
-  
   text-align: center;
   color: #00bb00;
   background-color: #bbffbe;
@@ -113,14 +108,71 @@ button {
   display: none;
 }
 
-#campoObrigatorio{
-  display: block;
-  color: #ff0000;
-  font-weight: 500;
+ /* barre de progresso */
+ #progreso {
+  margin-top: 2%;
+  width: 60%;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px darkgray;
 }
-/* ocultar e ver senha */
 
-.container-senha.login{
+#barra {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 0%;
+  background: rgb(120,152,255);
+  background: linear-gradient(90deg, rgba(120,152,255,1) 0%, rgba(142,100,197,1) 100%); 
+  border-radius: 5px;
+  height: 20px;
+  
+  text-align: center;
+  line-height: 30px;
+  color: white;
+
+}
+
+#iniciar-carga {
+  padding: .5em 3em;
+  background-color: var(--primary);
+  color: white;
+  margin-top: 2em;
+  font-weight: 400;
+  font-size: 1em;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+ }
+  
+ /* Estilos do Spinner */
+ #conteiner-load {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  -webkit-transition: all 3s ease;
+  transition: all 3s ease;
+  background-color: whitesmoke;
+ border: 2px solid;
+ }
+  
+ #load {
+ 
+  border: 10px solid rgb(255, 255, 255);
+  outline: 1px solid lightgray;
+  border-top-color: var(--primary);
+  border-bottom-color: var(--secondary);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  -webkit-animation: girar 1.5s linear infinite;
+  animation: girar 1.5s linear infinite;
+ }
+ .container-senha.login{
   width: 100%;
   padding: .4em .5em;
   position: relative;
@@ -130,6 +182,7 @@ button {
   width: 100%;
   padding: .4em .5em;
   position: relative;
+  margin-right: 1em ;
   
   
 }
@@ -173,141 +226,7 @@ button {
 }
 /* ocultar e ver senha */
 
-/* conteúdo de barra de carregamento */
 
-#barra-de-carregamento {
-  background-color: rgb(110, 0, 0);
-  width: 100%;
-  height: 70%;
-  position: fixed;
-  top: 30%;
-  z-index: 2;
-  -webkit-transition: all 3s ease;
-  transition: all 3s ease;
-}
- 
-#carga {
-  border: 10px solid rgb(255, 255, 255);
-  border-top-color: #ff0000;
-  border-top-style: dashed;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
-  -webkit-animation: girar 1.5s linear infinite;
-  animation: girar 1.5s linear infinite;
-}
- 
-@-webkit-keyframes girar {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
- 
-@keyframes girar {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
 
-/* Oculta o formulário */
-.hidden {
-  display: none;
- }
-  
- /* Estilos do Spinner */
- #conteiner-load {
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  -webkit-transition: all 3s ease;
-  transition: all 3s ease;
-  background-color: whitesmoke;
- border: 2px solid;
- }
-  
- #load {
- 
-  border: 10px solid rgb(255, 255, 255);
-  outline: 1px solid lightgray;
-  border-top-color: var(--primary);
-  border-bottom-color: var(--secondary);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
-  -webkit-animation: girar 1.5s linear infinite;
-  animation: girar 1.5s linear infinite;
- }
-  
- /* Animação do spinner */
- @-webkit-keyframes girar {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
- }
-  
- @keyframes girar {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
- }
- /* barre de progresso */
- #progreso {
-  margin-top: 2%;
-  width: 60%;
-  border-radius: 5px;
-  box-shadow: 3px 3px 5px darkgray;
-}
 
-#barra {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  width: 0%;
-  border-radius: 5px;
-  height: 20px;
-  background-color: #04aa6d;
-  text-align: center;
-  line-height: 30px;
-  color: white;
 
-}
-
-#iniciar-carga {
-  padding: .5em 3em;
-  background-color: var(--primary);
-  color: white;
-  margin-top: 2em;
-  font-weight: 400;
-  font-size: 1em;
-  cursor: pointer;
-}

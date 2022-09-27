@@ -1,5 +1,5 @@
 // Simulamos un proceso que demora 5 segundos en completarse
-const tiempoDeCarga = 2000;
+const tiempoDeCarga = 3000;
 
 function animarBarra() {
   // Seleccionamos el elemento barra

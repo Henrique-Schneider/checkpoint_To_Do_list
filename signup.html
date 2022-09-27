@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To-Do App</title>
-
+  
+                               <!-- ICONS -->    
+  <script src="https://kit.fontawesome.com/f3dcfe94d2.js" crossorigin="anonymous"></script>
   <!-- ---------------- estilos compartilhados entre login e signup ---------------- -->
   <link rel="stylesheet" href="styles/acesso.css">
-
-                               <!-- ICONS -->                            
-  <script src="https://kit.fontawesome.com/f3dcfe94d2.js" crossorigin="anonymous"></script>
 
   <!-- ---------------------- lógica aplicada no registro -------------------- -->
   
@@ -25,35 +24,28 @@
   </div>
   <div class="right">
     <form id="form-cadastro">
-      
       <div class="form-header">
         <p>To-Do App</p>
       </div>
+      <div id="msgErr"></div>
+      <div id="msgSucesso"></div>
       <div id="progreso">
         <div id="barra">0%</div>
       </div>
-      <div id="msgErr"></div>
-      <div id="msgSucesso"> </div>
-      <div class="container-senha">
       <label id="labelNome">
         Nome:
       </label>
         <input id="nome" type="text">
-        </div>
-        <div class="container-senha">
-        <label id="labelSobrenome">
+      <label id="labelSobrenome">
         Sobrenome:
       </label>
         <input id="sobrenome" type="text">
-        </div>
-        <div class="container-senha">
-        <label id="labelEmail">
+      <label id="labelEmail">
         Email:
       </label>
         <input id="email" type="email">
-        </div>
         <div class="container-senha">
-        <label id="labelSenha">
+      <label id="labelSenha">
         Senha:
       </label>
         <input id="senha" type="password">
@@ -61,24 +53,21 @@
         <i id="esconderSenha"class="fa-solid fa-eye-slash fechadoCadastro"></i>
       </div>
       <div class="container-senha">
-        <label id="labelRsenha">
+      <label id="labelRsenha">
         Repetir senha:
       </label>
         <input id="rSenha" type="password">
         <i id="verSenhaConfirmarSenha" class="fa-solid fa-eye abertoCadastro"></i>
         <i id="esconderConfirSenha"class="fa-solid fa-eye-slash fechadoCadastro"></i>
       </div>
-      
-        <button id="iniciar-carga" type="submit">Criar conta</button>
+      <button id="iniciar-carga" type="submit">Criar conta</button>
 
     </form>
-    
     <div class="ingressar">
-      <a class=""  href="index.html">Já possui conta? Acesse aqui</a>
+      <a href="index.html">Já possui conta? Acesse aqui</a>
     </div>
   </div>
 <script src="./scripts/cadastro.js"></script>
-<script src="./scripts/loaders.js"></script>
 <script src="./scripts/barraDeProgresso.js"></script>
 </body>
 

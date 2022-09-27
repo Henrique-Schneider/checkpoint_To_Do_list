@@ -1,15 +1,12 @@
-//Verificando se existe um usuario no localStorage
-
-if (!localStorage.user) {
-  location.replace("index.html");
-}
 
 //criando a logica para carregar a pagina
 window.addEventListener("load", function () {
-  //mostrar o nome do usuario no nav
+//mostrar o nome do usuario no nav
   const userName = document.querySelector(".user-info p");
+  
+  
 
-  //criando a funcao de sair
+  //criando a funcao de sair 
   const btnFecharSessão = document.querySelector("#closeApp");
   btnFecharSessão.addEventListener("click", function () {
     let confirmacao = confirm("Deseja enserrar a sessão?");
@@ -21,8 +18,8 @@ window.addEventListener("load", function () {
   });
 
   const urlTarefas = "https://ctd-fe2-todo-v2.herokuapp.com/v1/tasks";
-  const usuario = localStorage.user;
-  const token = usuario;
+  const token = localStorage.user
+ 
 
   const criarTarefa = document.querySelector(".nova-tarefa");
   const novaTarefa = document.querySelector("#novaTarefa");
@@ -198,7 +195,7 @@ window.addEventListener("load", function () {
   }
   const urlLogado = "https://ctd-fe2-todo-v2.herokuapp.com/v1/users/getMe";
   //obter lista de usuarios GET
-
+  
   const configuracao = {
     method: "GET",
     headers: {
@@ -207,19 +204,19 @@ window.addEventListener("load", function () {
   };
   console.log("verificando meus usuarios");
   fetch(urlLogado, configuracao)
-      .then((response) => response.json())
+  
+    .then((response) => response.json())
     .then((usuario) => {
       let usuarioLogado = {
         id: usuario.id,
         firstName: usuario.firstName,
         lastName: usuario.lastName,
-        email: usuario.email,
-      };
+        email: usuario.email
+      }
       localStorage.setItem("userLogado", JSON.stringify(usuarioLogado));
-
-      userName.innerText =
-        usuarioLogado.firstName + " " + usuarioLogado.lastName;
-
+      
+      userName.innerText = usuarioLogado.firstName + " " + usuarioLogado.lastName;
+          
       console.log(usuarioLogado);
     })
     .catch((error) => console.log(error));
