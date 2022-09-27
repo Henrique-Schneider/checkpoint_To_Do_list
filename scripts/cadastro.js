@@ -87,9 +87,9 @@ function validaEmail(email) {
 }
 
 iNome.addEventListener('keyup' , ()=>{
-  if (iNome.value.length <= 5) {
+  if (iNome.value.length <= 3) {
    labelNome.setAttribute("style", "color:  red")
-   labelNome.innerHTML = "Nome Insira no minino 5 caracteres"
+   labelNome.innerHTML = "Nome Insira no minino 4 caracteres"
    iNome.setAttribute('style', 'border-color: red')
    validNome = false
     
@@ -102,9 +102,9 @@ iNome.addEventListener('keyup' , ()=>{
 })
 
 iSobrenome.addEventListener('keyup' , ()=>{
-  if (iSobrenome.value.length <= 6) {
+  if (iSobrenome.value.length <= 3) {
    labelSobrenome.setAttribute("style", "color:  red")
-   labelSobrenome.innerHTML = "Sobrenome Insira no minino 6 caracteres"
+   labelSobrenome.innerHTML = "Sobrenome Insira no minino 4 caracteres"
    iSobrenome.setAttribute('style', 'border-color: red')
    validSobrenome = false
     
@@ -120,7 +120,7 @@ iSobrenome.addEventListener('keyup' , ()=>{
 iSenha.addEventListener('keyup' , ()=>{
   if (iSenha.value.length <= 5) {
     labelSenha.setAttribute("style", "color:  red")
-    labelSenha.innerHTML = "Senha Insira no minino 5 caracteres"
+    labelSenha.innerHTML = "Senha Insira no minino 6 caracteres"
     iSenha.setAttribute('style', 'border-color: red')
     validSenha = false
     
